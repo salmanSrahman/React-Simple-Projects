@@ -14,9 +14,9 @@ const Meals = () => {
   return (
     <div className={style.Meals__container}>
       <Container>
-        <Row>
+        <Row className="g-2">
           <Col md={9}>
-            <Row md={3}>
+            <Row md={3} className="g-4">
               {meals.map((meal) => (
                 <Meal key={meal.idMeal} meal={meal}></Meal>
               ))}

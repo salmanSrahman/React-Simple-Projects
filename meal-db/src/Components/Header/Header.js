@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import style from "./Header.module.css";
 import Logo from "../../images/logo.svg";
+import CustomLink from "../CustomLink/CustomLink";
 
 const Header = () => {
   return (
@@ -18,10 +19,10 @@ const Header = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="#action1">Home</Nav.Link>
-              <Nav.Link href="#action2">About</Nav.Link>
-              <Nav.Link href="#action3">Recipes</Nav.Link>
-              <Nav.Link href="#action4">Blog</Nav.Link>
+              <CustomLink to="/">Home</CustomLink>
+              <CustomLink to="/about">About</CustomLink>
+              <CustomLink to="/cart">Cart</CustomLink>
+              <CustomLink to="/contact">Contact</CustomLink>
             </Nav>
           </Navbar.Collapse>
         </Container>
