@@ -6,12 +6,17 @@ import style from "./Meals.module.css";
 
 const Meals = () => {
   const [meals, setMeals] = useState([]);
+  const [mealDetails, setMealDetails] = useState([]);
 
   useEffect(() => {
     fetch("https://www.themealdb.com/api/json/v1/1/search.php?s")
       .then((res) => res.json())
       .then((data) => setMeals(data.meals));
   }, []);
+
+  const seeDetails = (id) => {
+    setMealDetails(id);
+  };
 
   return (
     <div className={style.Meals__container}>
@@ -20,12 +25,16 @@ const Meals = () => {
           <Col md={9}>
             <Row md={3} className="g-4">
               {meals.map((meal) => (
-                <Meal key={meal.idMeal} meal={meal}></Meal>
+                <Meal
+                  key={meal.idMeal}
+                  meal={meal}
+                  seeDetails={seeDetails}
+                ></Meal>
               ))}
             </Row>
           </Col>
           <Col md={3}>
-            <MealDetails />
+            <MealDetails mealDetails={mealDetails} />
           </Col>
         </Row>
       </Container>
