@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Meal from "../Meal/Meal";
+import MealDetails from "../MealDetails/MealDetails";
 import style from "./Meals.module.css";
 
 const Meals = () => {
@@ -11,6 +12,7 @@ const Meals = () => {
       .then((res) => res.json())
       .then((data) => setMeals(data.meals));
   }, []);
+
   return (
     <div className={style.Meals__container}>
       <Container>
@@ -22,7 +24,9 @@ const Meals = () => {
               ))}
             </Row>
           </Col>
-          <Col md={3}></Col>
+          <Col md={3}>
+            <MealDetails />
+          </Col>
         </Row>
       </Container>
     </div>
